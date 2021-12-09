@@ -1,6 +1,9 @@
+# Changed From Original
+* Updated code to work with Valet 4.x.
+
 ![](https://github.com/ryasnoy/AppLocker/raw/master/AppLockerLogo.png)
 
-![Swift](https://img.shields.io/badge/Swift-4.0-orange.svg)
+![Swift](https://img.shields.io/badge/Swift-5.0-orange.svg)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://mit-license.org)
 [![Platform](http://img.shields.io/badge/platform-ios-lightgrey.svg?style=flat)](https://developer.apple.com/resources/)
 [![Twitter](https://img.shields.io/badge/twitter-@beqance-blue.svg?maxAge=2592000)](http://twitter.com/beqance)
