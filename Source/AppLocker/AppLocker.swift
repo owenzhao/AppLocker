@@ -63,11 +63,21 @@ public class AppLocker: UIViewController {
     private var isFirstCreationStep = true
     private var savedPin: String? {
         get {
-            return AppLocker.valet.string(forKey: ALConstants.kPincode)
+            do {
+                return try AppLocker.valet.string(forKey: ALConstants.kPincode)
+            } catch let error {
+                assertionFailure("\(error)")
+                return nil
+            }
         }
         set {
             guard let newValue = newValue else { return }
-            AppLocker.valet.set(string: newValue, forKey: ALConstants.kPincode)
+            
+            do {
+                try AppLocker.valet.setString(newValue, forKey: ALConstants.kPincode)
+            } catch let error {
+                assertionFailure("\(error)")
+            }
         }
     }
     
@@ -171,7 +181,11 @@ public class AppLocker: UIViewController {
     }
     
     private func removePin() {
-        AppLocker.valet.removeObject(forKey: ALConstants.kPincode)
+        do {
+            try AppLocker.valet.removeObject(forKey: ALConstants.kPincode)
+        } catch let error {
+            assertionFailure("\(error)")
+        }
         dismiss(animated: true) {
             self.onSuccessfulDismiss?(self.mode)
         }
